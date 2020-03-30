@@ -24,13 +24,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        _ = ContentView(rGuess: 0.5, gGuess: 0.5, bGuess: 0.5).environment(\.managedObjectContext, context)
+        _ = ContentView().environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
+            
+            #warning("Здесь проверяется какое окно открывается первым")
+            // и в зависимости от того авторизован пользователь или это первый запуск (неавторизованный пользователь) то открывается нужное окно приложения
             window.rootViewController = UIHostingController(rootView:
-            ContentView(rGuess: 0.5, gGuess: 0.5, bGuess: 0.5))
+            ContentView())
             self.window = window
             window.makeKeyAndVisible()
         }
