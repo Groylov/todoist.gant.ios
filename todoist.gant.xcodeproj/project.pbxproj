@@ -10,7 +10,7 @@
 		F907415924325B310099D9E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907415824325B310099D9E2 /* AppDelegate.swift */; };
 		F907415B24325B310099D9E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907415A24325B310099D9E2 /* SceneDelegate.swift */; };
 		F907415E24325B310099D9E2 /* todoist_gant.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F907415C24325B310099D9E2 /* todoist_gant.xcdatamodeld */; };
-		F907416024325B310099D9E2 /* LoginWView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907415F24325B310099D9E2 /* LoginWView.swift */; };
+		F907416024325B310099D9E2 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907415F24325B310099D9E2 /* LoginView.swift */; };
 		F907416224325B340099D9E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F907416124325B340099D9E2 /* Assets.xcassets */; };
 		F907416524325B340099D9E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F907416424325B340099D9E2 /* Preview Assets.xcassets */; };
 		F907416824325B340099D9E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F907416624325B340099D9E2 /* LaunchScreen.storyboard */; };
@@ -40,7 +40,7 @@
 		F907415824325B310099D9E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F907415A24325B310099D9E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F907415D24325B310099D9E2 /* todoist_gant.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = todoist_gant.xcdatamodel; sourceTree = "<group>"; };
-		F907415F24325B310099D9E2 /* LoginWView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWView.swift; sourceTree = "<group>"; };
+		F907415F24325B310099D9E2 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F907416124325B340099D9E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F907416424325B340099D9E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F907416724325B340099D9E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 			children = (
 				F907415824325B310099D9E2 /* AppDelegate.swift */,
 				F907415A24325B310099D9E2 /* SceneDelegate.swift */,
-				F907415F24325B310099D9E2 /* LoginWView.swift */,
+				F907415F24325B310099D9E2 /* LoginView.swift */,
 				F907416124325B340099D9E2 /* Assets.xcassets */,
 				F907416624325B340099D9E2 /* LaunchScreen.storyboard */,
 				F907416924325B340099D9E2 /* Info.plist */,
@@ -272,7 +272,7 @@
 			files = (
 				F907415924325B310099D9E2 /* AppDelegate.swift in Sources */,
 				F907415B24325B310099D9E2 /* SceneDelegate.swift in Sources */,
-				F907416024325B310099D9E2 /* LoginWView.swift in Sources */,
+				F907416024325B310099D9E2 /* LoginView.swift in Sources */,
 				F907415E24325B310099D9E2 /* todoist_gant.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
