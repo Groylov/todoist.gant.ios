@@ -16,6 +16,7 @@
 		F907416824325B340099D9E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F907416624325B340099D9E2 /* LaunchScreen.storyboard */; };
 		F907417324325B340099D9E2 /* todoist_gantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907417224325B340099D9E2 /* todoist_gantTests.swift */; };
 		F907417E24325B340099D9E2 /* todoist_gantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907417D24325B340099D9E2 /* todoist_gantUITests.swift */; };
+		F907418E24367E9D0099D9E2 /* SecondaryFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907418D24367E9D0099D9E2 /* SecondaryFunc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		F907417924325B340099D9E2 /* todoist.gantUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = todoist.gantUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F907417D24325B340099D9E2 /* todoist_gantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoist_gantUITests.swift; sourceTree = "<group>"; };
 		F907417F24325B340099D9E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F907418D24367E9D0099D9E2 /* SecondaryFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryFunc.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +103,10 @@
 		F907415724325B310099D9E2 /* todoist.gant */ = {
 			isa = PBXGroup;
 			children = (
+				F907418F24367EA80099D9E2 /* ViewModules */,
 				F907415824325B310099D9E2 /* AppDelegate.swift */,
 				F907415A24325B310099D9E2 /* SceneDelegate.swift */,
-				F907415F24325B310099D9E2 /* LoginView.swift */,
+				F907418D24367E9D0099D9E2 /* SecondaryFunc.swift */,
 				F907416124325B340099D9E2 /* Assets.xcassets */,
 				F907416624325B340099D9E2 /* LaunchScreen.storyboard */,
 				F907416924325B340099D9E2 /* Info.plist */,
@@ -137,6 +140,14 @@
 				F907417F24325B340099D9E2 /* Info.plist */,
 			);
 			path = todoist.gantUITests;
+			sourceTree = "<group>";
+		};
+		F907418F24367EA80099D9E2 /* ViewModules */ = {
+			isa = PBXGroup;
+			children = (
+				F907415F24325B310099D9E2 /* LoginView.swift */,
+			);
+			path = ViewModules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F907415924325B310099D9E2 /* AppDelegate.swift in Sources */,
+				F907418E24367E9D0099D9E2 /* SecondaryFunc.swift in Sources */,
 				F907415B24325B310099D9E2 /* SceneDelegate.swift in Sources */,
 				F907416024325B310099D9E2 /* LoginView.swift in Sources */,
 				F907415E24325B310099D9E2 /* todoist_gant.xcdatamodeld in Sources */,
