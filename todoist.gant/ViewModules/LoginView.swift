@@ -11,8 +11,17 @@ import SwiftUI
 /// Application authorization form in the service ToDoist
 struct LoginFormView: View {
     
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     /// image for button auth
     let imageToDoist = readResizeImage(named: "ToDoist_mainicon", 128.0, 128.0)
+    
+    /// function event tap for auth in service ToDoist
+    func tapLoginToDoist() {
+        let userSettings = UserSettings.shared
+        userSettings.userToken = "c7f0ff9c3c34b7e074dc6830f481e9b6f90fe2fb"
+        userSettings.saveSettings()
+    }
     
     var body: some View {
         VStack {
@@ -27,6 +36,8 @@ struct LoginFormView: View {
                 } else {
                     Text("Auth in ToDoist")
                 }
+            }.onTapGesture {
+                self.tapLoginToDoist()
             }
             Spacer()
             HStack {
@@ -37,10 +48,12 @@ struct LoginFormView: View {
     }
 }
 
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         LoginFormView()
     }
 }
+#endif
 
 

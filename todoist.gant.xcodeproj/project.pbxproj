@@ -17,6 +17,9 @@
 		F907417324325B340099D9E2 /* todoist_gantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907417224325B340099D9E2 /* todoist_gantTests.swift */; };
 		F907417E24325B340099D9E2 /* todoist_gantUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907417D24325B340099D9E2 /* todoist_gantUITests.swift */; };
 		F907418E24367E9D0099D9E2 /* SecondaryFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907418D24367E9D0099D9E2 /* SecondaryFunc.swift */; };
+		F907419B2438C4AF0099D9E2 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907419A2438C4AF0099D9E2 /* DataHandler.swift */; };
+		F907419D2438E1970099D9E2 /* MainFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907419C2438E1970099D9E2 /* MainFormView.swift */; };
+		F907419F2438E3FC0099D9E2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907419E2438E3FC0099D9E2 /* UserSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,10 @@
 		F907417D24325B340099D9E2 /* todoist_gantUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoist_gantUITests.swift; sourceTree = "<group>"; };
 		F907417F24325B340099D9E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F907418D24367E9D0099D9E2 /* SecondaryFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryFunc.swift; sourceTree = "<group>"; };
+		F907419A2438C4AF0099D9E2 /* DataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHandler.swift; sourceTree = "<group>"; };
+		F907419C2438E1970099D9E2 /* MainFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFormView.swift; sourceTree = "<group>"; };
+		F907419E2438E3FC0099D9E2 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		F90741A024390D6F0099D9E2 /* v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v1.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +113,8 @@
 				F907418F24367EA80099D9E2 /* ViewModules */,
 				F907415824325B310099D9E2 /* AppDelegate.swift */,
 				F907415A24325B310099D9E2 /* SceneDelegate.swift */,
+				F907419A2438C4AF0099D9E2 /* DataHandler.swift */,
+				F907419E2438E3FC0099D9E2 /* UserSettings.swift */,
 				F907418D24367E9D0099D9E2 /* SecondaryFunc.swift */,
 				F907416124325B340099D9E2 /* Assets.xcassets */,
 				F907416624325B340099D9E2 /* LaunchScreen.storyboard */,
@@ -146,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				F907415F24325B310099D9E2 /* LoginView.swift */,
+				F907419C2438E1970099D9E2 /* MainFormView.swift */,
 			);
 			path = ViewModules;
 			sourceTree = "<group>";
@@ -281,10 +291,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F907419D2438E1970099D9E2 /* MainFormView.swift in Sources */,
 				F907415924325B310099D9E2 /* AppDelegate.swift in Sources */,
 				F907418E24367E9D0099D9E2 /* SecondaryFunc.swift in Sources */,
 				F907415B24325B310099D9E2 /* SceneDelegate.swift in Sources */,
 				F907416024325B310099D9E2 /* LoginView.swift in Sources */,
+				F907419F2438E3FC0099D9E2 /* UserSettings.swift in Sources */,
+				F907419B2438C4AF0099D9E2 /* DataHandler.swift in Sources */,
 				F907415E24325B310099D9E2 /* todoist_gant.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +402,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -442,6 +456,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -580,7 +595,7 @@
 				F907418124325B340099D9E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		F907418224325B340099D9E2 /* Build configuration list for PBXNativeTarget "todoist.gant" */ = {
 			isa = XCConfigurationList;
@@ -589,7 +604,7 @@
 				F907418424325B340099D9E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		F907418524325B340099D9E2 /* Build configuration list for PBXNativeTarget "todoist.gantTests" */ = {
 			isa = XCConfigurationList;
@@ -598,7 +613,7 @@
 				F907418724325B340099D9E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		F907418824325B340099D9E2 /* Build configuration list for PBXNativeTarget "todoist.gantUITests" */ = {
 			isa = XCConfigurationList;
@@ -607,7 +622,7 @@
 				F907418A24325B340099D9E2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 
@@ -615,6 +630,7 @@
 		F907415C24325B310099D9E2 /* todoist_gant.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F90741A024390D6F0099D9E2 /* v1.xcdatamodel */,
 				F907415D24325B310099D9E2 /* todoist_gant.xcdatamodel */,
 			);
 			currentVersion = F907415D24325B310099D9E2 /* todoist_gant.xcdatamodel */;
