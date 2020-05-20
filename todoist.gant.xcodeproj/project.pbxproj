@@ -20,6 +20,9 @@
 		F907419B2438C4AF0099D9E2 /* DataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907419A2438C4AF0099D9E2 /* DataHandler.swift */; };
 		F907419D2438E1970099D9E2 /* MainFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907419C2438E1970099D9E2 /* MainFormView.swift */; };
 		F907419F2438E3FC0099D9E2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907419E2438E3FC0099D9E2 /* UserSettings.swift */; };
+		F95E685A2455947B0005ADC7 /* ToDoGantProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95E68592455947B0005ADC7 /* ToDoGantProject.swift */; };
+		F95E685E2455A5D90005ADC7 /* ToDoGantProjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95E685D2455A5D90005ADC7 /* ToDoGantProjectTest.swift */; };
+		F9D63A2C245BA88B004858E7 /* ToDoGantProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95E68592455947B0005ADC7 /* ToDoGantProject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,8 @@
 		F907419C2438E1970099D9E2 /* MainFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFormView.swift; sourceTree = "<group>"; };
 		F907419E2438E3FC0099D9E2 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		F90741A024390D6F0099D9E2 /* v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v1.xcdatamodel; sourceTree = "<group>"; };
+		F95E68592455947B0005ADC7 /* ToDoGantProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoGantProject.swift; sourceTree = "<group>"; usesTabs = 0; };
+		F95E685D2455A5D90005ADC7 /* ToDoGantProjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoGantProjectTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +125,7 @@
 				F907416624325B340099D9E2 /* LaunchScreen.storyboard */,
 				F907416924325B340099D9E2 /* Info.plist */,
 				F907415C24325B310099D9E2 /* todoist_gant.xcdatamodeld */,
+				F95E68592455947B0005ADC7 /* ToDoGantProject.swift */,
 				F907416324325B340099D9E2 /* Preview Content */,
 			);
 			path = todoist.gant;
@@ -138,6 +144,7 @@
 			children = (
 				F907417224325B340099D9E2 /* todoist_gantTests.swift */,
 				F907417424325B340099D9E2 /* Info.plist */,
+				F95E685D2455A5D90005ADC7 /* ToDoGantProjectTest.swift */,
 			);
 			path = todoist.gantTests;
 			sourceTree = "<group>";
@@ -170,6 +177,8 @@
 				F907415124325B310099D9E2 /* Sources */,
 				F907415224325B310099D9E2 /* Frameworks */,
 				F907415324325B310099D9E2 /* Resources */,
+				F9D63A2D245DC185004858E7 /* Build version increment */,
+				F9D63A2E245DE9B2004858E7 /* Use TODO */,
 			);
 			buildRules = (
 			);
@@ -286,6 +295,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F9D63A2D245DC185004858E7 /* Build version increment */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build version increment";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+		F9D63A2E245DE9B2004858E7 /* Use TODO */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Use TODO";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TAGS=\"TODO:|FIXME:\"\nfind \"${SRCROOT}\" \\( -name \"*.h\" -or -name \"*.m\" -or -name \"*.swift\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F907415124325B310099D9E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -295,6 +343,7 @@
 				F907415924325B310099D9E2 /* AppDelegate.swift in Sources */,
 				F907418E24367E9D0099D9E2 /* SecondaryFunc.swift in Sources */,
 				F907415B24325B310099D9E2 /* SceneDelegate.swift in Sources */,
+				F95E685A2455947B0005ADC7 /* ToDoGantProject.swift in Sources */,
 				F907416024325B310099D9E2 /* LoginView.swift in Sources */,
 				F907419F2438E3FC0099D9E2 /* UserSettings.swift in Sources */,
 				F907419B2438C4AF0099D9E2 /* DataHandler.swift in Sources */,
@@ -307,6 +356,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F907417324325B340099D9E2 /* todoist_gantTests.swift in Sources */,
+				F9D63A2C245BA88B004858E7 /* ToDoGantProject.swift in Sources */,
+				F95E685E2455A5D90005ADC7 /* ToDoGantProjectTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +434,7 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -443,6 +495,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -466,6 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"todoist.gant/Preview Content\"";
 				DEVELOPMENT_TEAM = G2KZ7MF6NE;
 				ENABLE_PREVIEWS = YES;
@@ -486,6 +540,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"todoist.gant/Preview Content\"";
 				DEVELOPMENT_TEAM = G2KZ7MF6NE;
 				ENABLE_PREVIEWS = YES;
@@ -508,6 +563,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2KZ7MF6NE;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				INFOPLIST_FILE = todoist.gantTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -530,6 +586,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G2KZ7MF6NE;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
 				INFOPLIST_FILE = todoist.gantTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
