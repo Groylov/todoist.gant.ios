@@ -18,9 +18,19 @@ struct LoginFormView: View {
     
     /// function event tap for auth in service ToDoist
     func tapLoginToDoist() {
+        #if DEBUG
         let userSettings = UserSettings.shared
         userSettings.userToken = "c7f0ff9c3c34b7e074dc6830f481e9b6f90fe2fb"
         userSettings.saveSettings()
+        
+        /*
+         curl https://api.todoist.com/sync/v8/sync \
+         -d token=c7f0ff9c3c34b7e074dc6830f481e9b6f90fe2fb \
+         -d sync_token='*' \
+         -d resource_types='["user_settings"]'
+         
+         */
+        #endif
     }
     
     var body: some View {
