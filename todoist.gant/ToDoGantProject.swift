@@ -5,7 +5,7 @@
 //  Created by Aleksey Groylov on 26.04.2020.
 //  Copyright © 2020 Aleksey Groylov. All rights reserved.
 //
-//  Модуль описания класса хранения структуры проектов и задач
+//  Модуль описания класса хранения структуры проектов
 
 
 import Foundation
@@ -16,83 +16,8 @@ enum ToDoGantProjectError: Error {
     case invalidStructFreeProject(project: ToDoGantProject)
 }
 
-/// Список ошибок класса ToDoGantTask
-enum ToDoGantTaskError: Error {
-    
-}
 
-/// Структура визуального представления объекта
-struct VisualPerfomanceObject {
-    var name: String
-}
 
-/// Протокол наличия функции представления у объекта класса
-protocol VisualPerfomanceObjectProtocol: AnyObject {
-    func perfomanceObjec() -> VisualPerfomanceObject
-}
-
-/// Структура для хранения визуального отображения проекта и задачи
-struct VisualObjectFreeStruct<T: VisualPerfomanceObjectProtocol> {
-    // сортировка
-    var order: Int
-    // уровень сдвига от основания дерева хранения
-    var depth: Int
-    weak var object: T?
-}
-
-/// Структура формирования дерева отображения проектов и задач
-struct VisualObjectFree <T: VisualPerfomanceObjectProtocol> {
-    
-    // массив хранения
-    //private (set)
-    private (set) var visibleArray: [VisualObjectFreeStruct<T>] = []
-    
-    /// Пустой инициализатор
-    init () {}
-    
-    init (object: T) {
-        let newObjectFree = VisualObjectFreeStruct<T>(order: 0, depth: 0, object: object)
-        visibleArray.append(newObjectFree)
-    }
-    
-    mutating func incObjectDepth(inc: Int) {
-        visibleArray.forEach {
-            $0.depth += inc
-        }
-    }
-    
-    mutating func incObjectOrder(inc: Int) {
-        visibleArray.forEach {
-            $0.order += inc
-        }
-    }
-    
-    mutating func addArray(add: VisualObjectFree<T>) {
-        let inc = visibleArray.count
-        var newAdd = add
-        newAdd.incObjectOrder(inc: inc)
-        visibleArray = visibleArray + newAdd.visibleArray
-    }
-    
-    mutating func addObjectBegin(add: T, depth: Int) {
-        self.incObjectOrder(inc: 1)
-        let newFreeStruct = VisualObjectFreeStruct<T>(order: 0, depth: depth, object: add)
-        visibleArray.insert(newFreeStruct, at: 0)
-    }
-    
-    mutating func addObjectEnd(add: T, depth: Int) {
-        let newFreeStruct = VisualObjectFreeStruct<T>(order: visibleArray.count, depth: depth, object: add)
-        visibleArray.append(newFreeStruct)
-    }
-    
-    subscript (index: Int) -> VisualObjectFreeStruct<T> {
-        return visibleArray[index]
-    }
-    
-    func getVisualArray() -> [VisualObjectFreeStruct<T>] {
-        return visibleArray
-    }
-}
 
 /// Расшифровка цветов для для проектов
 let todoistProjectColor: [Int:String] =
@@ -202,7 +127,7 @@ class ToDoGantProject: ToDoGantProjectProtocol, Equatable {
             return nil
         }
         
-        var rgbValue:UInt64 = 0
+        var rgbValue: UInt64 = 0
         Scanner(string: cString).scanHexInt64(&rgbValue)
         
         return UIColor(
@@ -344,11 +269,20 @@ class ToDoGantProject: ToDoGantProjectProtocol, Equatable {
             $0.setUseProject(use: use)
         }
     }
+    
+    
+    func getVisualProjectFree() -> VisualObjectFree<ToDoGantProject> {
+        let A = VisualObjectFree<ToDoGantProject>()
+        return A
+    }
 
     
     // TODO: протестировать функции удаления подпроектов и подзадач
+    
     // TODO: добавить функцию возврата данных для визуального отображения с помощью структуры VisualProjectFree
+    
     // TODO: посмотреть возможность универсальности класса VisualProjectFree для использования не только для проектов, но и для задач
+    
     /// Отчистка проекта со всеми подчененными проектами
     func deinitChildProject() {
         for element in childProjects {
@@ -371,16 +305,7 @@ class ToDoGantProject: ToDoGantProjectProtocol, Equatable {
 }
 
 
-protocol TodoistTaskProtocol {}
-protocol GantTaskProtocol {}
-protocol ToDoGantTaskProtocol: TodoistTaskProtocol,GantTaskProtocol {
-}
 
-class ToDoGantTask: ToDoGantTaskProtocol, Equatable {
-    static func == (left: ToDoGantTask, right: ToDoGantTask) -> Bool {
-        return true
-    }
-}
 
 /// Плагин для изменения массивов
 public extension MutableCollection {

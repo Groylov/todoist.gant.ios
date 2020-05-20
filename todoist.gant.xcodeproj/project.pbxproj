@@ -23,6 +23,10 @@
 		F95E685A2455947B0005ADC7 /* ToDoGantProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95E68592455947B0005ADC7 /* ToDoGantProject.swift */; };
 		F95E685E2455A5D90005ADC7 /* ToDoGantProjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95E685D2455A5D90005ADC7 /* ToDoGantProjectTest.swift */; };
 		F9D63A2C245BA88B004858E7 /* ToDoGantProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95E68592455947B0005ADC7 /* ToDoGantProject.swift */; };
+		F9F3B4742475C9F300D066FE /* VisualObjectFree.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F3B4732475C9F300D066FE /* VisualObjectFree.swift */; };
+		F9F3B4752475C9FA00D066FE /* VisualObjectFree.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F3B4732475C9F300D066FE /* VisualObjectFree.swift */; };
+		F9F3B4772475CAC400D066FE /* ToDoGantTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F3B4762475CAC400D066FE /* ToDoGantTask.swift */; };
+		F9F3B4782475CAE400D066FE /* ToDoGantTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F3B4762475CAC400D066FE /* ToDoGantTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,8 @@
 		F90741A024390D6F0099D9E2 /* v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v1.xcdatamodel; sourceTree = "<group>"; };
 		F95E68592455947B0005ADC7 /* ToDoGantProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoGantProject.swift; sourceTree = "<group>"; usesTabs = 0; };
 		F95E685D2455A5D90005ADC7 /* ToDoGantProjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoGantProjectTest.swift; sourceTree = "<group>"; };
+		F9F3B4732475C9F300D066FE /* VisualObjectFree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualObjectFree.swift; sourceTree = "<group>"; };
+		F9F3B4762475CAC400D066FE /* ToDoGantTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoGantTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,8 @@
 				F907416924325B340099D9E2 /* Info.plist */,
 				F907415C24325B310099D9E2 /* todoist_gant.xcdatamodeld */,
 				F95E68592455947B0005ADC7 /* ToDoGantProject.swift */,
+				F9F3B4762475CAC400D066FE /* ToDoGantTask.swift */,
+				F9F3B4732475C9F300D066FE /* VisualObjectFree.swift */,
 				F907416324325B340099D9E2 /* Preview Content */,
 			);
 			path = todoist.gant;
@@ -341,9 +349,11 @@
 			files = (
 				F907419D2438E1970099D9E2 /* MainFormView.swift in Sources */,
 				F907415924325B310099D9E2 /* AppDelegate.swift in Sources */,
+				F9F3B4742475C9F300D066FE /* VisualObjectFree.swift in Sources */,
 				F907418E24367E9D0099D9E2 /* SecondaryFunc.swift in Sources */,
 				F907415B24325B310099D9E2 /* SceneDelegate.swift in Sources */,
 				F95E685A2455947B0005ADC7 /* ToDoGantProject.swift in Sources */,
+				F9F3B4772475CAC400D066FE /* ToDoGantTask.swift in Sources */,
 				F907416024325B310099D9E2 /* LoginView.swift in Sources */,
 				F907419F2438E3FC0099D9E2 /* UserSettings.swift in Sources */,
 				F907419B2438C4AF0099D9E2 /* DataHandler.swift in Sources */,
@@ -357,7 +367,9 @@
 			files = (
 				F907417324325B340099D9E2 /* todoist_gantTests.swift in Sources */,
 				F9D63A2C245BA88B004858E7 /* ToDoGantProject.swift in Sources */,
+				F9F3B4752475C9FA00D066FE /* VisualObjectFree.swift in Sources */,
 				F95E685E2455A5D90005ADC7 /* ToDoGantProjectTest.swift in Sources */,
+				F9F3B4782475CAE400D066FE /* ToDoGantTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
