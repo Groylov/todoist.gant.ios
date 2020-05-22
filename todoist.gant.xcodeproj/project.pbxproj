@@ -22,6 +22,7 @@
 		F907419F2438E3FC0099D9E2 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907419E2438E3FC0099D9E2 /* UserSettings.swift */; };
 		F95E685A2455947B0005ADC7 /* ToDoGantProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95E68592455947B0005ADC7 /* ToDoGantProject.swift */; };
 		F95E685E2455A5D90005ADC7 /* ToDoGantProjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95E685D2455A5D90005ADC7 /* ToDoGantProjectTest.swift */; };
+		F971ED3A247839F600E30591 /* VisualObjectFreeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F971ED39247839F600E30591 /* VisualObjectFreeTest.swift */; };
 		F9D63A2C245BA88B004858E7 /* ToDoGantProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95E68592455947B0005ADC7 /* ToDoGantProject.swift */; };
 		F9F3B4742475C9F300D066FE /* VisualObjectFree.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F3B4732475C9F300D066FE /* VisualObjectFree.swift */; };
 		F9F3B4752475C9FA00D066FE /* VisualObjectFree.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F3B4732475C9F300D066FE /* VisualObjectFree.swift */; };
@@ -69,6 +70,7 @@
 		F90741A024390D6F0099D9E2 /* v1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v1.xcdatamodel; sourceTree = "<group>"; };
 		F95E68592455947B0005ADC7 /* ToDoGantProject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoGantProject.swift; sourceTree = "<group>"; usesTabs = 0; };
 		F95E685D2455A5D90005ADC7 /* ToDoGantProjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoGantProjectTest.swift; sourceTree = "<group>"; };
+		F971ED39247839F600E30591 /* VisualObjectFreeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualObjectFreeTest.swift; sourceTree = "<group>"; };
 		F9F3B4732475C9F300D066FE /* VisualObjectFree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualObjectFree.swift; sourceTree = "<group>"; };
 		F9F3B4762475CAC400D066FE /* ToDoGantTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoGantTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,6 +155,7 @@
 				F907417224325B340099D9E2 /* todoist_gantTests.swift */,
 				F907417424325B340099D9E2 /* Info.plist */,
 				F95E685D2455A5D90005ADC7 /* ToDoGantProjectTest.swift */,
+				F971ED39247839F600E30591 /* VisualObjectFreeTest.swift */,
 			);
 			path = todoist.gantTests;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F971ED3A247839F600E30591 /* VisualObjectFreeTest.swift in Sources */,
 				F907417324325B340099D9E2 /* todoist_gantTests.swift in Sources */,
 				F9D63A2C245BA88B004858E7 /* ToDoGantProject.swift in Sources */,
 				F9F3B4752475C9FA00D066FE /* VisualObjectFree.swift in Sources */,

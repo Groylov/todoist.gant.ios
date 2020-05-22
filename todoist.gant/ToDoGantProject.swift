@@ -1,4 +1,3 @@
-//
 //  ToDoGantProject.swift
 //  todoist.gant
 //
@@ -6,6 +5,7 @@
 //  Copyright © 2020 Aleksey Groylov. All rights reserved.
 //
 //  Модуль описания класса хранения структуры проектов
+//
 
 
 import Foundation
@@ -16,13 +16,16 @@ enum ToDoGantProjectError: Error {
     case invalidStructFreeProject(project: ToDoGantProject)
 }
 
-
-
-
-/// Расшифровка цветов для для проектов
+/// Расшифровка цветов для проектов
+/// - Todo: Перенести в отдельный модуль со всеми констатами от ToDoist
 let todoistProjectColor: [Int:String] =
-    [30:"#b8255f", 31:"#db4035",32:"#ff9933",33:"#fad000",34:"#afb83b",35:"#7ecc49",36:"#299438",37:"#6accbc",38:"#158fad",39:"#14aaf5",40:"#96c3eb",41:"#4073ff",42:"#884dff",43:"#af38eb",44:"#eb96eb",45:"#e05194",46:"#ff8d85",47:"#808080",48:"#b8b8b8",49:"#ccac93"]
-
+    [30:"#b8255f",31:"#db4035",32:"#ff9933",
+     33:"#fad000",34:"#afb83b",35:"#7ecc49",
+     36:"#299438",37:"#6accbc",38:"#158fad",
+     39:"#14aaf5",40:"#96c3eb",41:"#4073ff",
+     42:"#884dff",43:"#af38eb",44:"#eb96eb",
+     45:"#e05194",46:"#ff8d85",47:"#808080",
+     48:"#b8b8b8",49:"#ccac93"]
 
 /// Протокол хранения проекта в системе Todoist
 protocol TodoistProjectProtocol {
@@ -76,7 +79,7 @@ protocol GantProjectProtocol {
     var colorTaskProject: UIColor? {get set}
 }
 
-/// Объединенный протокол хранения данных для программы Todoist и Gant
+/// Объединенный протоколов хранения данных для программы Todoist и Gant
 protocol ToDoGantProjectProtocol: TodoistProjectProtocol, GantProjectProtocol,VisualPerfomanceObjectProtocol {}
 
 /// Основной класс хранения структуры проектов
@@ -101,15 +104,15 @@ class ToDoGantProject: ToDoGantProjectProtocol, Equatable {
     var colorTaskProject: UIColor?
     private (set) var useProject: Bool = false
     
-    // ссылка на родительский проект
+    /// ссылка на родительский проект
     private (set) weak var mainProject: ToDoGantProject?
-    // массив подчененных проектов
+    /// массив подчененных проектов
     private (set) var childProjects: [ToDoGantProject] = []
-    // массив подчененных задач
+    /// массив подчененных задач
     private (set) var childTask: [ToDoGantTask] = []
-    // информация о необходимости сохранения данных о проекте
+    /// информация о необходимости сохранения данных о проекте
     private var saveData: Bool = true
-    // цвет проекта из настроек
+    /// цвет проекта из настроек
     private (set) var colorProject: UIColor = UIColor.gray
     
     /// Функция получения цвета по hex коду
@@ -142,7 +145,8 @@ class ToDoGantProject: ToDoGantProjectProtocol, Equatable {
     /// - Parameters:
     ///   - left: левый проект
     ///   - right: правый проект
-    /// - Returns: Истина, если проекты эдинтичны по идентификатору и наименованию
+    /// - Returns: Истина, если проекты эдинтичны
+    /// - Note: проекты сравниваются по идентификатору и наименованию
     static func == (left: ToDoGantProject, right: ToDoGantProject) -> Bool {
         return left.td_id == right.td_id && left.td_name == right.td_name
     }
@@ -205,7 +209,9 @@ class ToDoGantProject: ToDoGantProjectProtocol, Equatable {
         }
     }
     
-    // TODO: Доработать функцию до правильного представления объекта
+    /// Функция представления проекта для построения дерева проектов
+    /// - Returns: структуру визуального представления объекта
+    /// - Todo: Сделать правильное представление объекта
     func perfomanceObjec() -> VisualPerfomanceObject {
         let newPerfomance = VisualPerfomanceObject(name: self.td_name)
         return newPerfomance
@@ -270,20 +276,22 @@ class ToDoGantProject: ToDoGantProjectProtocol, Equatable {
         }
     }
     
-    
+    /// Функция получения дерева объектов класса с подчененными проектами
+    /// - Returns: Возвращается объект класса **VisualObjectFree** по крайней мере хотя бы с одним элементов - текущим проектом
+    /// - Note: Данной функцией получаются массивы всех подчененных проектов текущего проекта и в конце все проекты перемещаются на один сдвиг и в основу ставится текущий проект - как основной
     func getVisualProjectFree() -> VisualObjectFree<ToDoGantProject> {
-        let A = VisualObjectFree<ToDoGantProject>()
-        return A
+        var returnVisualObject = VisualObjectFree<ToDoGantProject>()
+        for element in childProjects {
+            let returnChildFree = element.getVisualProjectFree()
+            returnVisualObject.addArray(add: returnChildFree)
+        }
+        returnVisualObject.incObjectDepth(inc: 1)
+        returnVisualObject.addObjectBegin(add: self, depth: 0)
+        return returnVisualObject
     }
 
-    
-    // TODO: протестировать функции удаления подпроектов и подзадач
-    
-    // TODO: добавить функцию возврата данных для визуального отображения с помощью структуры VisualProjectFree
-    
-    // TODO: посмотреть возможность универсальности класса VisualProjectFree для использования не только для проектов, но и для задач
-    
     /// Отчистка проекта со всеми подчененными проектами
+    /// - Todo: Протестировать функцию удаления
     func deinitChildProject() {
         for element in childProjects {
             element.deinitChildProject()
@@ -293,8 +301,9 @@ class ToDoGantProject: ToDoGantProjectProtocol, Equatable {
     }
     
     /// Отчистка всех подчененных задач проекта с подзадачами
+    /// - Todo: Сделать функцию отчистки задач
     func deinitChildTask() {
-        // Рпавильная отчистка подчененных задач
+        // Правильная отчистка подчененных задач
     }
     
     /// Обработка уничтожения проекта

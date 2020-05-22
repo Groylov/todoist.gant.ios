@@ -9,104 +9,6 @@
 import XCTest
 
 
-class VisualObjectFreeTest: XCTestCase {
-    // TODO: Переделать тестирование под вариативный вариант класса
-    override func setUpWithError() throws {
-        
-    }
-
-    override func tearDownWithError() throws {
-    }
-    
-    func testInitObject() throws {
-        let project = ToDoGantProject(id: 1, name: "Project 1", color: 39)
-        let visualProject = VisualObjectFree<ToDoGantProject>(object: project)
-        XCTAssertEqual(visualProject.visibleArray[0].depth, 0, "Не совпадает глубина дерева")
-        XCTAssertEqual(visualProject.visibleArray[0].order, 0, "Не совпадает сортировка")
-        XCTAssertEqual(visualProject.visibleArray[0].object, project, "Не совпадает проект")
-    }
-    
-    func testAddArray() throws {
-        let project1 = ToDoGantProject(id: 1, name: "Project 1", color: 39)
-        let project2 = ToDoGantProject(id: 2, name: "Project 2", color: 39)
-        var visualProject1 = VisualObjectFree<ToDoGantProject>(object: project1)
-        let visualProject2 = VisualObjectFree<ToDoGantProject>(object: project2)
-        visualProject1.addArray(add: visualProject2)
-        XCTAssertEqual(visualProject1.visibleArray.count, 2, "Не совпадает количество проектов")
-        XCTAssertEqual(visualProject1.visibleArray[0].order, 0,"Не совпадает сортировка")
-        XCTAssertEqual(visualProject1.visibleArray[1].order, 1,"Не совпадает сортировка")
-    }
-    
-    func testAddObjectBegin() throws {
-        let project1 = ToDoGantProject(id: 1, name: "Project 1", color: 39)
-        let project2 = ToDoGantProject(id: 2, name: "Project 2", color: 39)
-        var visualProject1 = VisualObjectFree<ToDoGantProject>(object: project1)
-        visualProject1.addObjectBegin(add: project2, depth: 0)
-        XCTAssertEqual(visualProject1.visibleArray.count, 2,"Не совпадает количество проектов")
-        XCTAssertEqual(visualProject1.visibleArray[0].order, 0, "Не совпадает сортировка")
-        XCTAssertEqual(visualProject1.visibleArray[1].order, 1, "Не совпадает сортировка")
-        XCTAssertEqual(visualProject1.visibleArray[0].object, project2, "Не совпадают проекты")
-    }
-    
-    func testAddObjectEnd() throws {
-        let project1 = ToDoGantProject(id: 1, name: "Project 1", color: 39)
-        let project2 = ToDoGantProject(id: 2, name: "Project 2", color: 39)
-        var visualProject1 = VisualObjectFree<ToDoGantProject>(object: project1)
-        visualProject1.addObjectEnd(add: project2, depth: 0)
-        XCTAssertEqual(visualProject1.visibleArray.count, 2)
-        XCTAssertEqual(visualProject1.visibleArray[0].order, 0)
-        XCTAssertEqual(visualProject1.visibleArray[1].order, 1)
-        XCTAssertEqual(visualProject1.visibleArray[0].object, project1)
-    }
-    
-    func testIncObjectDepth() throws {
-        let project1 = ToDoGantProject(id: 1, name: "Project 1", color: 39)
-        let project2 = ToDoGantProject(id: 2, name: "Project 2", color: 39)
-        var visualProject1 = VisualObjectFree<ToDoGantProject>(object: project1)
-        visualProject1.addObjectEnd(add: project2, depth: 0)
-        visualProject1.incObjectDepth(inc: 1)
-        XCTAssertEqual(visualProject1.visibleArray[0].depth, 1)
-        XCTAssertEqual(visualProject1.visibleArray[1].depth, 1)
-        XCTAssertEqual(visualProject1.visibleArray[0].object, project1)
-        XCTAssertEqual(visualProject1.visibleArray[1].object, project2)
-    }
-    
-    func testIncObjectOrder() throws {
-        let project1 = ToDoGantProject(id: 1, name: "Project 1", color: 39)
-        let project2 = ToDoGantProject(id: 2, name: "Project 2", color: 39)
-        var visualProject1 = VisualObjectFree(object: project1)
-        visualProject1.addObjectEnd(add: project2, depth: 0)
-        visualProject1.incObjectOrder(inc: 1)
-        XCTAssertEqual(visualProject1.visibleArray[0].order, 1)
-        XCTAssertEqual(visualProject1.visibleArray[1].order, 2)
-        XCTAssertEqual(visualProject1.visibleArray[0].object, project1)
-        XCTAssertEqual(visualProject1.visibleArray[1].object, project2)
-    }
-    
-    func testSubscript() throws {
-        let project1 = ToDoGantProject(id: 1, name: "Project 1", color: 39)
-        let project2 = ToDoGantProject(id: 2, name: "Project 2", color: 39)
-        var visualProject1 = VisualObjectFree<ToDoGantProject>(object: project1)
-        visualProject1.addObjectEnd(add: project2, depth: 0)
-        let readProject1 = visualProject1[0]
-        let readProject2 = visualProject1[1]
-        XCTAssertEqual(readProject1.object, project1)
-        XCTAssertEqual(readProject2.object, project2)
-    }
-    
-    func testGetVisualArray() throws {
-        let project1 = ToDoGantProject(id: 1, name: "Project 1", color: 39)
-        let project2 = ToDoGantProject(id: 2, name: "Project 2", color: 39)
-        var visualProject1 = VisualObjectFree<ToDoGantProject>(object: project1)
-        visualProject1.addObjectEnd(add: project2, depth: 0)
-        let visualArray = visualProject1.getVisualArray()
-        XCTAssertEqual(visualArray.count, 2, "Не верное количество элементов в массиве")
-        let readProject1 = visualArray[0].object ?? nil
-        let readProject2 = visualArray[1].object ?? nil
-        XCTAssertEqual(readProject1,project1, "Не верный проект в результатирующем массиве")
-        XCTAssertEqual(readProject2,project2, "Не верный проект в результатирующем массиве")
-    }
-}
 
 class ToDoGantProjectTest: XCTestCase {
     // Для тестирования создается структура проекта вида
@@ -214,6 +116,33 @@ class ToDoGantProjectTest: XCTestCase {
         XCTAssertTrue(project1_3_1_1.useProject, "Не изменился параметр у подчененного объекта")
         project1_4.setUseProject(use: true)
         XCTAssertFalse(project1_4.useProject, "Изменился не изменяемый параметр у объекта")
+        
+    }
+    
+    func testGetVisualProjectFree() throws {
+        try projectTest.createArrayChildProject(arrayProject: [project1_1,project1_2,project1_3,project1_4])
+        let returnFunc = projectTest.getVisualProjectFree()
+        XCTAssertEqual(returnFunc.count(),10, "Не верное количество элеентов в массиве")
+        // Первый элемент projectTest
+        XCTAssertEqual(returnFunc[0].object,projectTest)
+        XCTAssertEqual(returnFunc[0].depth,0)
+        XCTAssertEqual(returnFunc[0].order,0)
+        // Четвертый элемент project1_1_2
+        XCTAssertEqual(returnFunc[3].object,project1_1_2)
+        XCTAssertEqual(returnFunc[3].depth,2)
+        XCTAssertEqual(returnFunc[3].order,3)
+        // Шестой элемент project1_3
+        XCTAssertEqual(returnFunc[5].object,project1_3)
+        XCTAssertEqual(returnFunc[5].depth,1)
+        XCTAssertEqual(returnFunc[5].order,5)
+        // Восьмой элемент project1_3_1_1
+        XCTAssertEqual(returnFunc[7].object,project1_3_1_1)
+        XCTAssertEqual(returnFunc[7].depth,3)
+        XCTAssertEqual(returnFunc[7].order,7)
+        // Десятый элемент project1_4
+        XCTAssertEqual(returnFunc[9].object,project1_4)
+        XCTAssertEqual(returnFunc[9].depth,1)
+        XCTAssertEqual(returnFunc[9].order,9)
         
     }
 }
